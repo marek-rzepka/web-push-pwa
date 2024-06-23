@@ -1,8 +1,7 @@
 import "./services/firebase";
 import { getPermission } from "./services/cloudMessaging";
+import { register } from "register-service-worker";
 
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./sw.js");
-}
+register(`./sw.js`);
 
 document.getElementById("notify").addEventListener("click", getPermission);
