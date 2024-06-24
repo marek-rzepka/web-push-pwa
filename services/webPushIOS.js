@@ -20,6 +20,7 @@ export class PushControl {
         console.log(this.iOSPushCapability)
 
         window.addEventListener('push-permission-request', (event) => {
+            document.getElementById('text').innerHtml = `push permisssion ${JSON.stringify(event)}`
             if (event && event.detail){
                 this.logMessage(event.detail);
 
