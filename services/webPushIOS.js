@@ -16,7 +16,7 @@ export class PushControl {
         if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers['push-permission-request'] && window.webkit.messageHandlers['push-permission-state']) {
             this.iOSPushCapability = true;
         }
-
+        document.getElementById('initialize').textContent = this.iOSPushCapability;
         console.log(this.iOSPushCapability)
 
         window.addEventListener('push-permission-request', (event) => {
