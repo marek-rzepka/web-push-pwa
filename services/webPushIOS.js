@@ -11,7 +11,7 @@ export class PushControl {
         this.pushLog += `>: ${message}\r\n`
     }
 
-    async connectedCallback() {
+    async init() {
         if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers['push-permission-request'] && window.webkit.messageHandlers['push-permission-state']) {
             this.iOSPushCapability = true;
         }
@@ -66,6 +66,10 @@ export class PushControl {
                 this.logMessage(JSON.stringify(event.detail));
             }
         });
+
+        document.getElementById('push-permission').addEventListener('click', this.pushPermissionRequest);
+        document.getElementById('push-state').addEventListener('click', this.pushPermissionState);
+        document.getElementById('token').addEventListener('click', this.pushTokenRequest);
     }
 
     pushPermissionRequest(){
@@ -112,3 +116,8 @@ export class PushControl {
     //     `
     // }
 }
+
+window.addEventListener('DOMContentLoaded', async () => {
+    const pushController = new PushControl();
+    await pushController.init();
+})
