@@ -68,6 +68,7 @@ export class PushControl {
 
         window.addEventListener('push-token', (event) => {
             if (event && event.detail){
+                document.getElementById('showToken').textContent = JSON.stringify(event.detail);
                 this.logMessage(JSON.stringify(event.detail));
             }
         });
