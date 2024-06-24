@@ -12,9 +12,12 @@ export class PushControl {
     }
 
     async init() {
+        console.log('initialize')
         if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers['push-permission-request'] && window.webkit.messageHandlers['push-permission-state']) {
             this.iOSPushCapability = true;
         }
+
+        console.log(this.iOSPushCapability)
 
         window.addEventListener('push-permission-request', (event) => {
             if (event && event.detail){
@@ -73,6 +76,7 @@ export class PushControl {
     }
 
     pushPermissionRequest(){
+        console.log('pushPermissionRequest')
 		if (this.iOSPushCapability)
 			window.webkit.messageHandlers['push-permission-request'].postMessage('push-permission-request');
 	}
