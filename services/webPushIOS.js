@@ -9,6 +9,7 @@ export class PushControl {
         } catch(e) { }
         console.log(_toConsole);
         this.pushLog += `>: ${message}\r\n`
+        document.getElementById('eventtext').value = this.pushLog;
     }
 
     async init() {
