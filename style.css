@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 25px;
+    height: 100vh;
+  }
+  
+  .progress-bar {
+    height: 4px;
+    background-color: rgba(5, 114, 206, 0.1); 
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .progress-bar-value {
+    height: 100%;
+    width: 200%;
+    background: linear-gradient(
+      90deg, 
+      rgba(27, 170, 100, 0.3) 40%,
+      #1BAA64 45%,
+      rgba(27, 170, 100, 0.3) 55%,
+      rgba(27, 170, 100, 0) 100%
+    );
+    animation: movingGradient 2s linear infinite; /* Zmienione na linear */
+  }
+  
+  @keyframes movingGradient {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
